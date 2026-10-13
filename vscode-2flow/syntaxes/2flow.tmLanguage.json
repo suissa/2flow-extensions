@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "2flow",
+  "scopeName": "source.2flow",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#declarations" },
+    { "include": "#operators" },
+    { "include": "#types" },
+    { "include": "#constants" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.number-sign.2flow", "match": "#.*$" },
+        { "name": "comment.line.double-slash.2flow", "match": "//.*$" }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.2flow",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "name": "constant.character.escape.2flow", "match": "\\\\." }]
+    },
+    "declarations": {
+      "patterns": [
+        { "name": "keyword.control.flow.2flow", "match": "\\b(flow|execution)\\b" },
+        { "name": "keyword.control.2flow", "match": "\\b(if|else|when|then|parallel|join|retry|timeout|compensate|fallback|human|gate)\\b" }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        { "name": "keyword.operator.causal.2flow", "match": ":--:" },
+        { "name": "keyword.operator.failure.2flow", "match": "!->" },
+        { "name": "keyword.operator.invoke.2flow", "match": "->>" },
+        { "name": "keyword.operator.ingress.2flow", "match": "->" },
+        { "name": "keyword.operator.egress.2flow", "match": "<-" },
+        { "name": "keyword.operator.receive.2flow", "match": "<<-" },
+        { "name": "keyword.operator.gate.2flow", "match": "\\[\\?|\\]|\\[|\\]" }
+      ]
+    },
+    "types": {
+      "patterns": [
+        { "name": "support.type.result.2flow", "match": "\\b(Ok|Error)\\b(?=\\s*<)" },
+        { "name": "entity.name.type.2flow", "match": "(?<=<)[A-Za-z_][A-Za-z0-9_.:-]*(?=>)" },
+        { "name": "storage.type.2flow", "match": "\\b(bool|u8|u16|u32|u64|i8|i16|i32|i64|f32|f64|string|void)\\b" }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        { "name": "constant.language.2flow", "match": "\\b(true|false|null|none)\\b" },
+        { "name": "constant.numeric.2flow", "match": "\\b\\d+(?:\\.\\d+)?\\b" }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        { "name": "entity.name.function.2flow", "match": "\\b[A-Za-z_][A-Za-z0-9_-]*(?=\\s*(?:!->|:--:|$))" },
+        { "name": "entity.name.namespace.2flow", "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)+\\b" }
+      ]
+    }
+  }
+}
