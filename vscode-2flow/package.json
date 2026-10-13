@@ -1,0 +1,76 @@
+{
+  "name": "2flow-dracula",
+  "displayName": "2flow — Dracula Syntax",
+  "description": "Dracula-inspired syntax highlighting for 2flow files and fenced 2flow blocks in Markdown.",
+  "version": "0.1.0",
+  "publisher": "suissa",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Themes"
+  ],
+  "keywords": [
+    "2flow",
+    "dracula",
+    "syntax",
+    "markdown",
+    "workflow"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:2flow"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "2flow",
+        "aliases": [
+          "2flow",
+          "2flow notation"
+        ],
+        "extensions": [
+          ".2flow"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "2flow",
+        "scopeName": "source.2flow",
+        "path": "./syntaxes/2flow.tmLanguage.json"
+      },
+      {
+        "scopeName": "source.2flow.injection",
+        "path": "./syntaxes/2flow-markdown.tmLanguage.json",
+        "injectTo": [
+          "text.html.markdown",
+          "source.gfm"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.2flow": "2flow"
+        }
+      }
+    ],
+    "configurationDefaults": {
+      "[2flow]": {
+        "editor.semanticHighlighting.enabled": false,
+        "editor.bracketPairColorization.enabled": true
+      }
+    },
+    "themes": [
+      {
+        "label": "2flow Dracula",
+        "uiTheme": "vs-dark",
+        "path": "./themes/2flow-dracula-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node ./test/smoke-test.js",
+    "package": "npx --yes @vscode/vsce package"
+  }
+}
