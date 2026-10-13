@@ -1,0 +1,28 @@
+/* Dracula palette */
+.twoflow-dracula {
+  background: #282a36 !important;
+  color: #f8f8f2 !important;
+  border-radius: 8px !important;
+  overflow-x: auto;
+}
+.twoflow-dracula code.twoflow-code {
+  display: block;
+  padding: 16px !important;
+  color: #f8f8f2 !important;
+  background: transparent !important;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace !important;
+  font-size: 13px;
+  line-height: 1.65;
+  tab-size: 2;
+}
+.twoflow-line { display: inline; }
+.twoflow-comment { color: #6272a4; font-style: italic; }
+.twoflow-string { color: #f1fa8c; }
+.twoflow-operator { color: #ff79c6; font-weight: 700; }
+.twoflow-keyword { color: #ff79c6; font-weight: 700; }
+.twoflow-result { color: #8be9fd; font-weight: 600; }
+.twoflow-type { color: #8be9fd; }
+.twoflow-constant { color: #bd93f9; }
+.twoflow-number { color: #bd93f9; }
+.twoflow-namespace { color: #50fa7b; }
+.twoflow-identifier { color: #f8f8f2; }
