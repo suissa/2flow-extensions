@@ -20,9 +20,9 @@
     },
     "strings": {
       "name": "string.quoted.double.2flow",
-      "begin": "\"",
-      "end": "\"",
-      "patterns": [{ "name": "constant.character.escape.2flow", "match": "\\\\." }]
+      "begin": "\\\"",
+      "end": "\\\"",
+      "patterns": [{ "name": "constant.character.escape.2flow", "match": "\\\\\\\\." }]
     },
     "declarations": {
       "patterns": [
@@ -32,13 +32,46 @@
     },
     "operators": {
       "patterns": [
-        { "name": "keyword.operator.causal.2flow", "match": ":--:" },
-        { "name": "keyword.operator.failure.2flow", "match": "!->" },
-        { "name": "keyword.operator.invoke.2flow", "match": "->>" },
-        { "name": "keyword.operator.ingress.2flow", "match": "->" },
-        { "name": "keyword.operator.egress.2flow", "match": "<-" },
-        { "name": "keyword.operator.receive.2flow", "match": "<<-" },
-        { "name": "keyword.operator.gate.2flow", "match": "\\[\\?|\\]|\\[|\\]" }
+        { "name": "keyword.operator.causal.2flow", "match": "(:)(-)(-)(:)", "captures": {
+          "1": { "name": "keyword.operator.causal.edge.1.2flow" },
+          "2": { "name": "keyword.operator.causal.edge.2.2flow" },
+          "3": { "name": "keyword.operator.causal.edge.3.2flow" },
+          "4": { "name": "keyword.operator.causal.edge.4.2flow" }
+        } },
+        { "name": "keyword.operator.failure.2flow", "match": "(!)(-)(>)", "captures": {
+          "1": { "name": "keyword.operator.failure.mark.2flow" },
+          "2": { "name": "keyword.operator.failure.arrow.1.2flow" },
+          "3": { "name": "keyword.operator.failure.arrow.2.2flow" }
+        } },
+        { "name": "keyword.operator.invoke.2flow", "match": "(-)(>)(>)", "captures": {
+          "1": { "name": "keyword.operator.invoke.1.2flow" },
+          "2": { "name": "keyword.operator.invoke.2.2flow" },
+          "3": { "name": "keyword.operator.invoke.3.2flow" }
+        } },
+        { "name": "keyword.operator.ingress.2flow", "match": "(-)(>)", "captures": {
+          "1": { "name": "keyword.operator.ingress.1.2flow" },
+          "2": { "name": "keyword.operator.ingress.2.2flow" }
+        } },
+        { "name": "keyword.operator.egress.2flow", "match": "(<)(-)", "captures": {
+          "1": { "name": "keyword.operator.egress.1.2flow" },
+          "2": { "name": "keyword.operator.egress.2.2flow" }
+        } },
+        { "name": "keyword.operator.receive.2flow", "match": "(<)(<)(-)", "captures": {
+          "1": { "name": "keyword.operator.receive.1.2flow" },
+          "2": { "name": "keyword.operator.receive.2.2flow" },
+          "3": { "name": "keyword.operator.receive.3.2flow" }
+        } },
+        { "name": "keyword.operator.gate.2flow", "match": "(\\[)(\\?)([^]\\n]*)(\\])", "captures": {
+          "1": { "name": "keyword.operator.gate.bracket.open.2flow" },
+          "2": { "name": "keyword.operator.gate.question.2flow" },
+          "3": { "name": "keyword.operator.gate.content.2flow" },
+          "4": { "name": "keyword.operator.gate.bracket.close.2flow" }
+        } },
+        { "name": "keyword.operator.collection.2flow", "match": "(\\[)([^]\\n]*)(\\])", "captures": {
+          "1": { "name": "keyword.operator.collection.bracket.open.2flow" },
+          "2": { "name": "keyword.operator.collection.content.2flow" },
+          "3": { "name": "keyword.operator.collection.bracket.close.2flow" }
+        } }
       ]
     },
     "types": {
