@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "2flow Dracula Highlight",
+  "version": "0.1.0",
+  "description": "Dracula-inspired 2flow syntax highlighting for GitHub .2flow files and Markdown code fences.",
+  "permissions": [],
+  "host_permissions": ["https://github.com/*"],
+  "content_scripts": [{
+    "matches": ["https://github.com/*"],
+    "js": ["content.js"],
+    "css": ["styles.css"],
+    "run_at": "document_idle"
+  }],
+  "icons": {}
+}
