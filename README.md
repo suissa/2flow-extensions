@@ -6,7 +6,7 @@ Dracula-inspired syntax highlighting for [2flow](https://github.com/suissa/2flow
 
 ### 1. VS Code — `vscode-2flow/`
 
-- Syntax highlighting for standalone `.2flow` files.
+- Syntax highlighting for standalone `.2flow` files, with an included **2flow Dracula** editor color theme.
 - Syntax highlighting for Markdown fences marked `2flow`.
 - Highlights topological and execution operators, declarations, result types, strings, comments, and identifiers.
 - Document symbols for `flow` and `execution` scopes.
