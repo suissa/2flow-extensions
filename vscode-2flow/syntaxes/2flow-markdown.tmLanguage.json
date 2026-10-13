@@ -1,0 +1,18 @@
+{
+  "scopeName": "source.2flow.injection",
+  "injectionSelector": "L:markup.fenced_code.block.markdown",
+  "patterns": [
+    {
+      "name": "meta.embedded.block.2flow",
+      "begin": "(^|\\G)(\\s*)(`{3,}|~{3,})\\s*2flow\\s*$",
+      "end": "^\\s*(?:`{3,}|~{3,})\\s*$",
+      "beginCaptures": {
+        "3": { "name": "punctuation.definition.fence.markdown" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.fence.markdown" }
+      },
+      "patterns": [{ "include": "source.2flow" }]
+    }
+  ]
+}
