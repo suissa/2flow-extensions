@@ -18,24 +18,237 @@
     "editorBracketMatch.border": "#bd93f9"
   },
   "tokenColors": [
-    { "scope": ["comment", "comment.line", "comment.block"], "settings": { "foreground": "#6272a4", "fontStyle": "italic" } },
-    { "scope": ["string", "string.quoted"], "settings": { "foreground": "#f1fa8c" } },
-    { "scope": ["constant.numeric", "constant.language", "constant.character"], "settings": { "foreground": "#bd93f9" } },
-    { "scope": ["keyword", "keyword.control", "storage.type"], "settings": { "foreground": "#8be9fd" } },
-    { "scope": ["keyword.operator.causal.edge.1.2flow", "keyword.operator.causal.edge.4.2flow"], "settings": { "foreground": "#bd93f9", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.causal.edge.2.2flow", "keyword.operator.causal.edge.3.2flow"], "settings": { "foreground": "#8be9fd", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.ingress.1.2flow", "keyword.operator.invoke.1.2flow", "keyword.operator.failure.arrow.2.2flow"], "settings": { "foreground": "#8be9fd", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.ingress.2.2flow", "keyword.operator.egress.1.2flow", "keyword.operator.invoke.2.2flow", "keyword.operator.receive.1.2flow", "keyword.operator.receive.2.2flow", "keyword.operator.failure.arrow.1.2flow"], "settings": { "foreground": "#ff79c6", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.invoke.3.2flow", "keyword.operator.egress.2.2flow", "keyword.operator.receive.3.2flow"], "settings": { "foreground": "#bd93f9", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.failure.mark.2flow"], "settings": { "foreground": "#ff5555", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.gate.bracket.open.2flow", "keyword.operator.gate.bracket.close.2flow", "keyword.operator.collection.bracket.open.2flow", "keyword.operator.collection.bracket.close.2flow"], "settings": { "foreground": "#8be9fd", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.gate.question.2flow"], "settings": { "foreground": "#bd93f9", "fontStyle": "bold" } },
-    { "scope": ["keyword.operator.gate.content.2flow", "keyword.operator.collection.content.2flow"], "settings": { "foreground": "#ff79c6", "fontStyle": "bold" } },
-    { "scope": ["keyword.control.flow.2flow"], "settings": { "foreground": "#8be9fd", "fontStyle": "bold" } },
-    { "scope": ["support.type.result.2flow", "entity.name.type.2flow"], "settings": { "foreground": "#8be9fd" } },
-    { "scope": ["entity.name.namespace.2flow"], "settings": { "foreground": "#50fa7b" } },
-    { "scope": ["entity.name.function.2flow"], "settings": { "foreground": "#f8f8f2" } },
-    { "scope": ["constant.language.2flow"], "settings": { "foreground": "#bd93f9" } },
-    { "scope": ["invalid"], "settings": { "foreground": "#f8f8f2", "background": "#ff5555" } }
+    {
+      "scope": [
+        "comment",
+        "comment.line",
+        "comment.block"
+      ],
+      "settings": {
+        "foreground": "#6272a4",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": [
+        "string",
+        "string.quoted"
+      ],
+      "settings": {
+        "foreground": "#f1fa8c"
+      }
+    },
+    {
+      "scope": [
+        "constant.numeric",
+        "constant.language",
+        "constant.character"
+      ],
+      "settings": {
+        "foreground": "#bd93f9"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.ingress.1.2flow",
+        "keyword.operator.invoke.1.2flow",
+        "keyword.operator.failure.arrow.1.2flow"
+      ],
+      "settings": {
+        "foreground": "#8be9fd",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.ingress.2.2flow",
+        "keyword.operator.failure.arrow.2.2flow"
+      ],
+      "settings": {
+        "foreground": "#ff79c6",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.receive.1.2flow",
+        "keyword.operator.invoke.3.2flow"
+      ],
+      "settings": {
+        "foreground": "#bd93f9",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.receive.2.2flow"
+      ],
+      "settings": {
+        "foreground": "#ff79c6",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.receive.3.2flow"
+      ],
+      "settings": {
+        "foreground": "#8be9fd",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword",
+        "keyword.control",
+        "storage.type"
+      ],
+      "settings": {
+        "foreground": "#8be9fd"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.causal.edge.1.2flow",
+        "keyword.operator.causal.edge.4.2flow"
+      ],
+      "settings": {
+        "foreground": "#bd93f9",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.causal.edge.2.2flow",
+        "keyword.operator.causal.edge.3.2flow"
+      ],
+      "settings": {
+        "foreground": "#8be9fd",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.ingress.1.2flow",
+        "keyword.operator.invoke.1.2flow"
+      ],
+      "settings": {
+        "foreground": "#8be9fd",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.ingress.2.2flow",
+        "keyword.operator.egress.1.2flow",
+        "keyword.operator.invoke.2.2flow"
+      ],
+      "settings": {
+        "foreground": "#ff79c6",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.invoke.3.2flow",
+        "keyword.operator.egress.2.2flow",
+        "keyword.operator.receive.3.2flow"
+      ],
+      "settings": {
+        "foreground": "#bd93f9",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.failure.mark.2flow"
+      ],
+      "settings": {
+        "foreground": "#ff5555",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.gate.bracket.open.2flow",
+        "keyword.operator.gate.bracket.close.2flow",
+        "keyword.operator.collection.bracket.open.2flow",
+        "keyword.operator.collection.bracket.close.2flow"
+      ],
+      "settings": {
+        "foreground": "#8be9fd",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.gate.question.2flow"
+      ],
+      "settings": {
+        "foreground": "#bd93f9",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.gate.content.2flow",
+        "keyword.operator.collection.content.2flow"
+      ],
+      "settings": {
+        "foreground": "#ff79c6",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword.control.flow.2flow"
+      ],
+      "settings": {
+        "foreground": "#8be9fd",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "support.type.result.2flow",
+        "entity.name.type.2flow"
+      ],
+      "settings": {
+        "foreground": "#8be9fd"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.namespace.2flow"
+      ],
+      "settings": {
+        "foreground": "#50fa7b"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.function.2flow"
+      ],
+      "settings": {
+        "foreground": "#f8f8f2"
+      }
+    },
+    {
+      "scope": [
+        "constant.language.2flow"
+      ],
+      "settings": {
+        "foreground": "#bd93f9"
+      }
+    },
+    {
+      "scope": [
+        "invalid"
+      ],
+      "settings": {
+        "foreground": "#f8f8f2",
+        "background": "#ff5555"
+      }
+    }
   ]
 }
