@@ -8,7 +8,7 @@ Syntax highlighting for the [2flow notation](https://github.com/suissa/2flow), u
 - Highlights execution operators: `->`, `<-`, `->>`, and `<<-`.
 - Distinguishes `flow` and `execution` scopes, `Ok<T>` / `Error<E>`, types, comments, strings, and identifiers.
 - Provides document symbols for `flow` and `execution` declarations.
-- Designed to look right with the Dracula theme; token scopes map to conventional TextMate scopes.
+- Includes a dedicated **2flow Dracula** color theme with the Dracula background, editor colors, and syntax palette.
 
 ## Install locally
 
