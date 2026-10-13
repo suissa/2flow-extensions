@@ -40,7 +40,7 @@
   }
 
   function isTwoflowFence(pre) {
-    const wrapper = pre.closest(".highlight, .highlight-source-2flow, [class*='language-2flow']");
+    const wrapper = pre.closest(".highlight-source-2flow, [class*='language-2flow']");
     if (wrapper) return true;
     const code = pre.querySelector("code");
     if (code && /(?:^|\s)(?:language-2flow|highlight-source-2flow)(?:\s|$)/i.test(code.className)) return true;
