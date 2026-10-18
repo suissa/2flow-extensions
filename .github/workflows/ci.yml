@@ -2,9 +2,9 @@ name: Validate extensions
 
 on:
   push:
-    branches: [main, "fix/**", "feat/**"]
+    branches: [main, "fix/**", "feat/**", "test/**"]
   pull_request:
-    branches: [main]
+    branches: [main, "fix/**", "feat/**", "test/**"]
   workflow_dispatch:
 
 permissions:
@@ -33,10 +33,13 @@ jobs:
           node --check vscode-2flow/test/smoke-test.js
           node --check chrome-2flow/content.js
           node --check chrome-2flow/test/smoke-test.js
+          node --check chrome-2flow/test/dom-regression-test.js
       - name: Test VS Code extension metadata and grammar
         run: node vscode-2flow/test/smoke-test.js
       - name: Test Chrome extension metadata and behavior guards
         run: node chrome-2flow/test/smoke-test.js
+      - name: Test Chrome highlighter DOM behavior
+        run: node chrome-2flow/test/dom-regression-test.js
       - name: Package VS Code extension
         run: npx --yes @vscode/vsce package --no-dependencies
         working-directory: vscode-2flow
