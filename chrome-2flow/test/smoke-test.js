@@ -20,6 +20,8 @@ assert(!manifest.permissions || manifest.permissions.length === 0, "extension sh
 assert(script.includes("document.createTextNode"), "tokens must preserve source text as text nodes");
 assert(script.includes("span.textContent = match[0]"), "source tokens must not be inserted as HTML");
 assert(script.includes("MutationObserver"), "GitHub's dynamic navigation should be observed");
+assert(script.includes("TWO_FLOW_BLOB_PATH"), "the .2flow blob route matcher must be used by the content script");
+assert(script.includes("/\\/blob\\/[^/]+\\/.*\\.2flow$/i"), "the route matcher must include root-level and nested .2flow paths");
 assert(styles.includes("#282a36") && styles.includes("#f8f8f2"), "Dracula background and foreground colors must exist");
 
 // The route matcher must support both root-level and nested .2flow files.
