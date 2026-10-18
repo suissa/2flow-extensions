@@ -34,9 +34,16 @@ Dracula-inspired syntax highlighting for [2flow](https://github.com/suissa/2flow
 | Constants and numbers | `#bd93f9` |
 | Comments | `#6272a4` |
 
-## Status
+## Build and validation
 
-These are initial implementations of lexical highlighting, not a 2flow parser or validator. VS Code smoke tests are provided; the Chrome extension should be verified against GitHub’s current DOM because GitHub can change its rendering structure.
+GitHub Actions validates JSON, JavaScript syntax, VS Code grammar metadata, and Chrome extension guards on pushes and pull requests. Successful runs publish installable artifacts for 14 days:
+
+- `*.vsix` — install in VS Code using **Extensions: Install from VSIX...**.
+- `2flow-dracula-chrome.zip` — extract it, then load the extracted `chrome-2flow` files as an unpacked extension. The archive contains the manifest, content script, stylesheet, and instructions.
+
+Find artifacts under the **Actions → Validate extensions → latest successful run → Artifacts** section.
+
+These are lexical highlighters, not a 2flow parser or validator. Automated tests do not replace a manual visual check in a VS Code Extension Development Host and Chrome on GitHub, whose DOM can change.
 
 ## License
 
