@@ -7,6 +7,7 @@
   const KEYWORDS = new Set(["flow", "execution"]);
   const TYPES = new Set(["bool", "u8", "u16", "u32", "u64", "i8", "i16", "i32", "i64", "f32", "f64", "string", "void"]);
   const CONSTANTS = new Set(["true", "false", "null", "none"]);
+  const TWO_FLOW_BLOB_PATH = /\/blob\/[^/]+\/.*\.2flow$/i;
 
   function tokenClass(token) {
     if (token.startsWith("#") || token.startsWith("//")) return "twoflow-comment";
@@ -79,7 +80,8 @@
     document.querySelectorAll("pre").forEach((pre) => decoratePre(pre));
 
     // GitHub's rendered blob view for .2flow files has no language class.
-    if (/\/blob\/[^/]+\/[^/]+\/.*\.2flow$/i.test(location.pathname)) {
+    // Match both root-level files and files nested in directories.
+    if (TWO_FLOW_BLOB_PATH.test(location.pathname)) {
       document.querySelectorAll(".react-code-view pre, table.highlight pre, .blob-wrapper pre, #repo-content-pjax-container pre")
         .forEach((pre) => decoratePre(pre, true));
     }
