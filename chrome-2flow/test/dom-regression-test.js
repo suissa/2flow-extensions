@@ -135,7 +135,7 @@ function runContentScript({ pathname, pre, routePre = pre }) {
     lineCountBefore,
     "re-running the content script must not duplicate highlighted lines"
   );
-  assert.equal(result.code.textContent, original + "\\n", "re-running must preserve the rendered source");
+  assert.equal(result.code.textContent, original + "\n", "re-running must preserve the rendered source");
 }
 
 {
