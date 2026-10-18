@@ -111,8 +111,9 @@ function runContentScript({ pathname, pre, routePre = pre }) {
     MutationObserver: class { observe() {} },
     console
   };
-  vm.runInNewContext(source, context, { filename: "content.js" });
-  return { pre, code: pre.code, head };
+  const execute = () => vm.runInNewContext(source, context, { filename: "content.js" });
+  execute();
+  return { pre, code: pre.code, head, execute };
 }
 
 {
@@ -122,9 +123,19 @@ function runContentScript({ pathname, pre, routePre = pre }) {
   assert.equal(result.pre.dataset.twoflowDracula, "1", "language-2flow fence should be decorated");
   assert(result.code.children.some((node) => node.className === "twoflow-line"), "each source line should be wrapped");
   assert.equal(result.code.textContent, original + "\n", "rendered text should preserve source content");
-  assert(!result.code.children.some((node) => node.tagName === "img"), "source text must never become HTML");
+  const allNodes = (node) => [node, ...node.children.flatMap(allNodes)];
+  assert(!allNodes(result.code).some((node) => node.tagName.toLowerCase() === "img"), "source text must never become HTML at any depth");
   assert(result.code.children[0].children.some((node) => node.className === "twoflow-keyword"), "flow keyword should be tokenized");
   assert(result.code.children[1].children.some((node) => node.className === "twoflow-operator"), "operator should be tokenized");
+
+  const lineCountBefore = result.code.children.filter((node) => node.className === "twoflow-line").length;
+  result.execute();
+  assert.equal(
+    result.code.children.filter((node) => node.className === "twoflow-line").length,
+    lineCountBefore,
+    "re-running the content script must not duplicate highlighted lines"
+  );
+  assert.equal(result.code.textContent, original + "\\n", "re-running must preserve the rendered source");
 }
 
 {
