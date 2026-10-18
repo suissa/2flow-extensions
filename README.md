@@ -36,14 +36,23 @@ Dracula-inspired syntax highlighting for [2flow](https://github.com/suissa/2flow
 
 ## Build and validation
 
-GitHub Actions validates JSON, JavaScript syntax, VS Code grammar metadata, and Chrome extension guards on pushes and pull requests. Successful runs publish installable artifacts for 14 days:
+GitHub Actions validates JSON, JavaScript syntax, VS Code grammar metadata, theme scope coverage, and Chrome extension guards on pushes and pull requests. Successful runs publish installable artifacts for 14 days:
 
 - `*.vsix` — install in VS Code using **Extensions: Install from VSIX...**.
-- `2flow-dracula-chrome.zip` — extract it, then load the extracted `chrome-2flow` files as an unpacked extension. The archive contains the manifest, content script, stylesheet, and instructions.
+- `2flow-dracula-chrome.zip` — extract it, then load the extracted files as an unpacked extension. The archive contains the manifest, content script, stylesheet, and instructions.
 
 Find artifacts under the **Actions → Validate extensions → latest successful run → Artifacts** section.
 
-These are lexical highlighters, not a 2flow parser or validator. Automated tests do not replace a manual visual check in a VS Code Extension Development Host and Chrome on GitHub, whose DOM can change.
+## Visual regression fixtures
+
+Open [`fixtures/visual-regression.2flow`](fixtures/visual-regression.2flow) and [`fixtures/visual-regression.md`](fixtures/visual-regression.md) to inspect representative tokens, operators, comments, strings, types, and both backtick and tilde fences.
+
+Manual check:
+1. Install the generated VS Code `.vsix`, select **2flow Dracula**, and open both fixtures. Check that standalone files and fenced blocks are highlighted, including the tilde fence.
+2. Load the Chrome ZIP as an unpacked extension, then open the Markdown fixture on GitHub. Check the fenced block and a root-level and nested `.2flow` file in the repository.
+3. Confirm text outside a fence keeps GitHub's normal styling and the original source remains selectable and unchanged.
+
+Automated tests cover fixture contents and grammar/theme metadata, but they do not claim a real-browser visual pass. These are lexical highlighters, not a 2flow parser or validator; GitHub's DOM can change.
 
 ## License
 

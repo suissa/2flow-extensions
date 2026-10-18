@@ -1,0 +1,25 @@
+# Visual regression fixture: standalone .2flow highlighting
+// Comments should be muted and italic.
+
+flow delivery
+execution process_delivery
+classify -> validate
+validate !-> human_review
+receive <<- event
+event ->> actor
+outcome :--: accepted
+authorize [?user_is_valid]
+items [pending, accepted, failed]
+
+result Ok<Delivery>
+failure Error<ValidationError>
+enabled true
+disabled false
+empty null
+missing none
+attempts 3
+ratio 1.5
+name string
+count u32
+namespace.agent.run
+label "quoted string with \"escape\""
